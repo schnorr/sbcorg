@@ -1,0 +1,13 @@
+# sbcorg
+
+The SBC in OrgMode, just type make.
+
+Layout is from the Brazilian Computer Society (Article Style),
+[[http://www.sbc.org.br/documentos-da-sbc/category/169-templates-para-artigos-e-capitulos-de-livros][available here]].
+
+Be aware that this example is compatible with OrgMode 9.*. Earlier or
+later OrgMode versions require minor modifications to the Makefile
+and/or ieee.org files.
+
+For a detailed explanation on why and how to write reproducible
+articles using OrgMode, please visit the following [[https://github.com/alegrand/RR_webinars/blob/master/1_replicable_article_laboratory_notebook/index.org][page]].
