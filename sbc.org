@@ -21,18 +21,8 @@
 #+LATEX_HEADER: \usepackage[T1]{fontenc}
 #+LATEX_HEADER: \sloppy
 
-# You need at least Org 9 and Emacs 24 to make this work.
-# If you do, just type make (thanks Luka Stanisic for this).
-
-* IEEETran configuration for org export + ignore tag (Start Here)  :noexport:
-
-#+begin_src emacs-lisp :results output :session :exports both
-(add-to-list 'load-path ".")
-(require 'ox-extra)
-(ox-extras-activate '(ignore-headlines))
-#+end_src
-
-#+RESULTS:
+# PDF generation can be done by make (thanks Luka Stanisic)
+#   or C-c C-e l p (thanks Vinicius Garcia)
 
 * *The Paper*                                                       :ignore:
 ** Frontpage                                                        :ignore:
@@ -144,6 +134,14 @@ Tangle this file with C-c C-v t
   year={2013},
   publisher={Springer}
 }
-
-
 #+end_src
+* Emacs setup                                                      :noexport:
+# Local Variables:
+# eval: (add-to-list 'load-path ".")
+# eval: (require 'ox-extra)
+# eval: (ox-extras-activate '(ignore-headlines))
+# eval: (require 'org-ref)
+# eval: (require 'doi-utils)
+# eval: (setq org-latex-pdf-process (list "latexmk -pdf %f"))
+# eval: (add-to-list 'org-export-before-processing-hook (lambda (be) (org-babel-tangle)))
+# End:
