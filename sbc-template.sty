@@ -2,12 +2,13 @@
 %
 % Created by Jomi Hubner & Rafael Bordini, june 2001
 % updated march 2005
+% updated december 2017
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{sbc-template}[2001/06/09]
 
-% margem sup 3.5 cm: há 1,5 cm para header, + 2 cm para top
-% margem inf 2.5 cm: há 1,5 cm para foot, + 1 cm para bottom
+% margem sup 3.5 cm: hï¿½ 1,5 cm para header, + 2 cm para top
+% margem inf 2.5 cm: hï¿½ 1,5 cm para foot, + 1 cm para bottom
 % margem esq/dir 3 cm
 \RequirePackage[a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm]{geometry}
 
@@ -17,10 +18,12 @@
 \flushbottom
 
 % captions
-\RequirePackage[bf,sf,footnotesize,indent]{caption2}
+%updated 2017. Change deprecated caption2 to caption package
+\RequirePackage[bf,sf,footnotesize,indent]{caption}
 \setlength{\captionmargin}{0.8cm}
 \renewcommand{\captionfont}{\sffamily\footnotesize\bfseries}
-\renewcommand{\captionlabeldelim}{.}
+%\renewcommand{\captionlabeldelim}{.}
+\captionsetup{labelsep=period}
 
 % font
 \RequirePackage{times}
@@ -162,3 +165,36 @@
       \rightmargin\leftmargin}\item[\hskip\labelsep
                                     \bfseries\itshape Resumo.]\itshape}%
       {\endlist}
+
+%Updated 2017. If hyperref is used, do not change references styles
+\RequirePackage{etoolbox}%
+\AtEndPreamble{\@ifpackageloaded{hyperref}
+	{%
+		\makeatletter
+		  \def\@lbibitem[#1]#2{%
+			\@skiphyperreftrue
+			\H@item[%
+			  \ifx\Hy@raisedlink\@empty
+				\hyper@anchorstart{cite.#2\@extra@b@citeb}%
+				\hyper@anchorend
+			  \else
+				\Hy@raisedlink{%
+				  \hyper@anchorstart{cite.#2\@extra@b@citeb}\hyper@anchorend
+				}%
+			  \fi
+			  \hfill
+			]%
+			\@skiphyperreffalse
+			\if@filesw
+			  \begingroup
+				\let\protect\noexpand
+				\immediate\write\@auxout{%
+				  \string\bibcite{#2}{#1}%
+				}%
+			  \endgroup%
+			\fi%
+			\ignorespaces%
+		  }% 
+		\makeatother%
+	}%
+}%

@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 # -*- mode: org -*-
 
-#+TITLE: Title (appears only in the PDF properties)
+#+TITLE: Article Title
 #+AUTHOR: Lucas Mello Schnorr
 
 #+STARTUP: overview indent
-#+LANGUAGE: pt-br
+#+LANGUAGE: en
 #+OPTIONS: H:3 creator:nil timestamp:nil skip:nil toc:nil num:t ^:nil ~:~
 #+OPTIONS: author:nil title:nil date:nil
 #+TAGS: noexport(n) deprecated(d) ignore(i)
@@ -15,43 +15,35 @@
 #+LATEX_CLASS: article
 #+LATEX_CLASS_OPTIONS: [12pt]
 #+LATEX_HEADER: \usepackage{sbc-template}
+#+LATEX_HEADER: \usepackage{graphicx,url}
 #+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage[brazil]{babel}
 #+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \sloppy
 
-# You need at least Org 9 and Emacs 24 to make this work.
-# If you do, just type make (thanks Luka Stanisic for this).
-
-* IEEETran configuration for org export + ignore tag (Start Here)  :noexport:
-
-#+begin_src emacs-lisp :results output :session :exports both
-(add-to-list 'load-path ".")
-(require 'ox-extra)
-(ox-extras-activate '(ignore-headlines))
-#+end_src
-
-#+RESULTS:
+# PDF generation can be done by make (thanks Luka Stanisic)
+#   or C-c C-e l p (thanks Vinicius Garcia)
 
 * *The Paper*                                                       :ignore:
-** Latex configurations                                             :ignore:
-
-#+BEGIN_EXPORT latex
-%\usepackage[brazil]{babel}   
-\sloppy
-#+END_EXPORT
-
 ** Frontpage                                                        :ignore:
 
 #+BEGIN_EXPORT latex
-\title{This is the Real Title}
+\makeatletter
+\let\orgtitle\@title
+\makeatother
+
+\title{\orgtitle}
 
 \author{
    Lucas Mello Schnorr\inst{1},
    Somebody Else\inst{2}}
 
 \address{
-   Graduate Program in Computer Science (PPGC/UFRGS), Porto Alegre, Brazil
+   Institute of Informatics, Federal University of Rio Grande do Sul (UFRGS)\\
+   Caixa Postal 15.064 -- 91.501-970 -- Porto Alegre -- RS -- Brazil
    \nextinstitute
-   Somebody else's Institution, Brazil
+   Somebody else's Institution,
+   Adress --  Brazil
    \email{schnorr@inf.ufrgs.br}}
 #+END_EXPORT
 
@@ -73,7 +65,7 @@ Coloque o resumo aqui.
 
 ** Introduction
 
-This is just an example to show how Orgmode\cite{orgmode} can be
+This is just an example to show how Orgmode cite:orgmode can be
 neatly used to write papers following the SBC Article latex style. Feel
 free to modify and distributed this as you wish.
 
@@ -93,7 +85,7 @@ articles using OrgMode, please visit the following [[https://github.com/alegrand
 ** Related Work and Motivation
 \label{sec.relatedwork}
 
-Check this paper\cite{schnorr2013visualizing} about how you need to
+Check this paper cite:schnorr2013visualizing about how you need to
 semantically aggregate data.
 
 ** Your Great Contribution to Computer Science
@@ -109,15 +101,13 @@ Who paid for this?
 ** References                                                        :ignore:
 
 # See next section to understand how refs.bib file is created.
-
-#+LATEX: \bibliographystyle{sbc}
-#+LATEX: \bibliography{refs}
+bibliographystyle:sbc.bst
+[[bibliography:refs.bib]]
 
 * Bib file is here                                                 :noexport:
 
 Tangle this file with C-c C-v t
-
-#+begin_src bib :tangle refs.bib
+#+begin_src bibtex :tangle refs.bib
 @article{orgmode,
   author =	"Eric Schulte and Dan Davison and Thomas Dye and Carsten Dominik",
   title =	"A Multi-Language Computing Environment for Literate Programming and Reproducible Research",
@@ -142,6 +132,14 @@ Tangle this file with C-c C-v t
   year={2013},
   publisher={Springer}
 }
-
-
 #+end_src
+* Emacs setup                                                      :noexport:
+# Local Variables:
+# eval: (add-to-list 'load-path ".")
+# eval: (require 'ox-extra)
+# eval: (ox-extras-activate '(ignore-headlines))
+# eval: (require 'org-ref)
+# eval: (require 'doi-utils)
+# eval: (setq org-latex-pdf-process (list "latexmk -pdf %f"))
+# eval: (add-to-list 'org-export-before-processing-hook (lambda (be) (org-babel-tangle)))
+# End:
