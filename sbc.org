@@ -65,7 +65,7 @@ Coloque o resumo aqui.
 
 ** Introduction
 
-This is just an example to show how Orgmode\cite{orgmode} can be
+This is just an example to show how Orgmode cite:orgmode can be
 neatly used to write papers following the SBC Article latex style. Feel
 free to modify and distributed this as you wish.
 
@@ -101,15 +101,13 @@ Who paid for this?
 ** References                                                        :ignore:
 
 # See next section to understand how refs.bib file is created.
-
-#+LATEX: \bibliographystyle{sbc}
-#+LATEX: \bibliography{refs}
+bibliographystyle:sbc.bst
+[[bibliography:refs.bib]]
 
 * Bib file is here                                                 :noexport:
 
 Tangle this file with C-c C-v t
-
-#+begin_src bib :tangle refs.bib
+#+begin_src bibtex :tangle refs.bib
 @article{orgmode,
   author =	"Eric Schulte and Dan Davison and Thomas Dye and Carsten Dominik",
   title =	"A Multi-Language Computing Environment for Literate Programming and Reproducible Research",
