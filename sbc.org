@@ -85,7 +85,7 @@ articles using OrgMode, please visit the following [[https://github.com/alegrand
 ** Related Work and Motivation
 \label{sec.relatedwork}
 
-Check this paper\cite{schnorr2013visualizing} about how you need to
+Check this paper cite:schnorr2013visualizing about how you need to
 semantically aggregate data.
 
 ** Your Great Contribution to Computer Science
