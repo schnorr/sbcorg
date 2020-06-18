@@ -5,7 +5,7 @@
 #+AUTHOR: Lucas Mello Schnorr
 
 #+STARTUP: overview indent
-#+LANGUAGE: pt-br
+#+LANGUAGE: en
 #+OPTIONS: H:3 creator:nil timestamp:nil skip:nil toc:nil num:t ^:nil ~:~
 #+OPTIONS: author:nil title:nil date:nil
 #+TAGS: noexport(n) deprecated(d) ignore(i)
