@@ -15,8 +15,11 @@
 #+LATEX_CLASS: article
 #+LATEX_CLASS_OPTIONS: [12pt]
 #+LATEX_HEADER: \usepackage{sbc-template}
+#+LATEX_HEADER: \usepackage{graphicx,url}
 #+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage[brazil]{babel}
 #+LATEX_HEADER: \usepackage[T1]{fontenc}
+#+LATEX_HEADER: \sloppy
 
 # You need at least Org 9 and Emacs 24 to make this work.
 # If you do, just type make (thanks Luka Stanisic for this).
@@ -32,13 +35,6 @@
 #+RESULTS:
 
 * *The Paper*                                                       :ignore:
-** Latex configurations                                             :ignore:
-
-#+BEGIN_EXPORT latex
-%\usepackage[brazil]{babel}   
-\sloppy
-#+END_EXPORT
-
 ** Frontpage                                                        :ignore:
 
 #+BEGIN_EXPORT latex
@@ -53,9 +49,11 @@
    Somebody Else\inst{2}}
 
 \address{
-   Graduate Program in Computer Science (PPGC/UFRGS), Porto Alegre, Brazil
+   Institute of Informatics, Federal University of Rio Grande do Sul (UFRGS)\\
+   Caixa Postal 15.064 -- 91.501-970 -- Porto Alegre -- RS -- Brazil
    \nextinstitute
-   Somebody else's Institution, Brazil
+   Somebody else's Institution,
+   Adress --  Brazil
    \email{schnorr@inf.ufrgs.br}}
 #+END_EXPORT
 
