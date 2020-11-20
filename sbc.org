@@ -15,10 +15,8 @@
 #+LATEX_CLASS: article
 #+LATEX_CLASS_OPTIONS: [12pt]
 #+LATEX_HEADER: \usepackage{sbc-template}
-#+LATEX_HEADER: \usepackage{graphicx,url}
-#+LATEX_HEADER: \usepackage[utf8]{inputenc}
+#+LATEX_HEADER: \usepackage{url}
 #+LATEX_HEADER: \usepackage[brazil]{babel}
-#+LATEX_HEADER: \usepackage[T1]{fontenc}
 #+LATEX_HEADER: \sloppy
 
 # PDF generation can be done by make (thanks Luka Stanisic)
