@@ -47,17 +47,13 @@
 
 ** Abstract                                                         :ignore:
 
-#+LaTeX: \begin{abstract}
-
+#+begin_abstract
 Put the abstract here.
+#+end_abstract
 
-#+LaTeX: \end{abstract}
-
-#+LaTeX: \begin{resumo}
-
+#+begin_resumo
 Coloque o resumo aqui.
-
-#+LaTeX: \end{resumo}
+#+end_resumo
 
 ** Introduction
 
@@ -73,24 +69,25 @@ For a detailed explanation on why and how to write reproducible
 articles using OrgMode, please visit the following [[https://github.com/alegrand/RR_webinars/blob/master/1_replicable_article_laboratory_notebook/index.org][page]].
 
 ** Background and Experimental Context
-\label{sec.context}
+<<sec.context>>
 *** Background
-\label{sec.background}
+<<sec.background>>
 *** Experimental Context and Workload Details
-\label{sec.setup}
+<<sec.setup>>
 ** Related Work and Motivation
-\label{sec.relatedwork}
+<<sec.relatedwork>>
 
 Check this paper cite:schnorr2013visualizing about how you need to
 semantically aggregate data.
 
 ** Your Great Contribution to Computer Science
-\label{sec.proposal}
+<<sec.proposal>>
 ** Your Super Results
 ** Conclusion
-** Acknowledgments                                                  :ignore:
-
-#+LATEX:\section*{Acknowledgements}
+** Acknowledgments
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
 
 Who paid for this?
 
