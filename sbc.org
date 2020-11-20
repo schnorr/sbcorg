@@ -14,11 +14,7 @@
 
 #+LATEX_CLASS: article
 #+LATEX_CLASS_OPTIONS: [12pt]
-#+LATEX_HEADER: \usepackage{sbc-template}
-#+LATEX_HEADER: \usepackage{graphicx,url}
-#+LATEX_HEADER: \usepackage[utf8]{inputenc}
-#+LATEX_HEADER: \usepackage[brazil]{babel}
-#+LATEX_HEADER: \usepackage[T1]{fontenc}
+
 #+LATEX_HEADER: \sloppy
 
 # PDF generation can be done by make (thanks Luka Stanisic)
@@ -51,17 +47,13 @@
 
 ** Abstract                                                         :ignore:
 
-#+LaTeX: \begin{abstract}
-
+#+begin_abstract
 Put the abstract here.
+#+end_abstract
 
-#+LaTeX: \end{abstract}
-
-#+LaTeX: \begin{resumo}
-
+#+begin_resumo
 Coloque o resumo aqui.
-
-#+LaTeX: \end{resumo}
+#+end_resumo
 
 ** Introduction
 
@@ -77,24 +69,25 @@ For a detailed explanation on why and how to write reproducible
 articles using OrgMode, please visit the following [[https://github.com/alegrand/RR_webinars/blob/master/1_replicable_article_laboratory_notebook/index.org][page]].
 
 ** Background and Experimental Context
-\label{sec.context}
+<<sec.context>>
 *** Background
-\label{sec.background}
+<<sec.background>>
 *** Experimental Context and Workload Details
-\label{sec.setup}
+<<sec.setup>>
 ** Related Work and Motivation
-\label{sec.relatedwork}
+<<sec.relatedwork>>
 
 Check this paper cite:schnorr2013visualizing about how you need to
 semantically aggregate data.
 
 ** Your Great Contribution to Computer Science
-\label{sec.proposal}
+<<sec.proposal>>
 ** Your Super Results
 ** Conclusion
-** Acknowledgments                                                  :ignore:
-
-#+LATEX:\section*{Acknowledgements}
+** Acknowledgments
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
 
 Who paid for this?
 
@@ -140,6 +133,9 @@ Tangle this file with C-c C-v t
 # eval: (ox-extras-activate '(ignore-headlines))
 # eval: (require 'org-ref)
 # eval: (require 'doi-utils)
+# eval: (add-to-list 'org-latex-packages-alist '("" "url") t)
+# eval: (add-to-list 'org-latex-packages-alist '("" "sbc-template") t)
+# eval: (add-to-list 'org-latex-packages-alist '("AUTO" "babel" t ("pdflatex")))
 # eval: (setq org-latex-pdf-process (list "latexmk -pdf %f"))
 # eval: (add-to-list 'org-export-before-processing-hook (lambda (be) (org-babel-tangle)))
 # End:
