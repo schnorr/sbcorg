@@ -14,9 +14,7 @@
 
 #+LATEX_CLASS: article
 #+LATEX_CLASS_OPTIONS: [12pt]
-#+LATEX_HEADER: \usepackage{sbc-template}
-#+LATEX_HEADER: \usepackage{url}
-#+LATEX_HEADER: \usepackage[brazil]{babel}
+
 #+LATEX_HEADER: \sloppy
 
 # PDF generation can be done by make (thanks Luka Stanisic)
@@ -138,6 +136,9 @@ Tangle this file with C-c C-v t
 # eval: (ox-extras-activate '(ignore-headlines))
 # eval: (require 'org-ref)
 # eval: (require 'doi-utils)
+# eval: (add-to-list 'org-latex-packages-alist '("" "url") t)
+# eval: (add-to-list 'org-latex-packages-alist '("" "sbc-template") t)
+# eval: (add-to-list 'org-latex-packages-alist '("AUTO" "babel" t ("pdflatex")))
 # eval: (setq org-latex-pdf-process (list "latexmk -pdf %f"))
 # eval: (add-to-list 'org-export-before-processing-hook (lambda (be) (org-babel-tangle)))
 # End:
