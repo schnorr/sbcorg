@@ -1,5 +1,31 @@
 # sbcorg
 
+** Compile with Nix
+
+To build =sbc.pdf= using a reproducible Nix environment, run:
+
+#+begin_src sh
+make -f Makefile.nix
+#+end_src
+
+This uses =nix run= to provide Emacs + a full TeX Live distribution + =latexmk=
+without requiring any system-wide installation. The =sbc-template.sty=
+bundled in the repository is picked up via =TEXINPUTS=.
+
+Alternatively, you can drop into the Nix shell directly:
+
+#+begin_src sh
+nix develop .#all
+#+end_src
+
+Then run =make -f Makefile.nix= or =make= inside the shell.
+
+To clean generated artifacts:
+
+#+begin_src sh
+make -f Makefile.nix clean
+#+end_src
+
 ** The SBC in OrgMode, just type make.
 
 Layout is from the Brazilian Computer Society (Article Style),
